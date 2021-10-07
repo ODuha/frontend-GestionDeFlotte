@@ -1,0 +1,276 @@
+
+<div class="row" >
+
+<div class="container" >
+  <div class="carda">
+    <div class="card">
+      <div class="card-header">
+        Rechercher un client
+      </div>
+
+      <nav class="navbar">
+        <input matInput class="form-control" type="text" [(ngModel)]="searchText" placeholder="Rechercher...">
+      </nav>
+
+    <div class="cardbody">
+      <table class="table table-striped">
+        <thead>
+          <tr class="text-center">
+            <th>ID</th>
+            <th>Nom</th>
+            <th>CIN</th>
+            <th>Nom de société</th>
+            <th>RC</th>
+            <th>Adresse</th>
+            <th>Téléphone</th>
+          
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody *ngIf ="actif !== '0'">
+          <tr  *ngFor="let client of clients |filter:searchText  | paginate: {itemsPerPage: 4, currentPage: p}" class="text-center">
+            <td>{{client.id}}</td>
+            <td>{{client.nom}}</td>
+            <td>{{client.cine}}</td>
+            <td>{{client.nom_societe}}</td>
+            <td>{{client.rc}}</td>
+            <td>{{client.adresse}}</td>
+            <td>{{client.tel}}</td>
+            
+
+            <td>
+              <button type="button" class="btn btn-edit" (click)="openModal(editProfileModal,client,compte)">Edit</button>
+              <ng-template #editProfileModal let-modal>
+                <div class="modal-header">
+                 <h5 class="modal-title" id="editProfileLabel">Modification d'un client</h5>
+                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                 </button>
+                </div>
+                
+                <div class="modal-body">
+                 <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group row">
+                   <label for="client" class="col-sm-4 col-form-label" >Id</label>
+                   <div class="col-sm-8">
+                    <input type="text" class="form-control" formControlName="id" id="id" >
+                   </div>
+                  </div>   <div class="form-group row">
+                   <label for="client" class="col-sm-4 col-form-label">Nom</label>
+                   <div class="col-sm-8">
+                    <input type="text" class="form-control"  [(ngModel)]="client.nom"  formControlName="nom" id="nom">
+                   </div>
+                  </div>   <div class="form-group row">
+                   <label for="client" class="col-sm-4 col-form-label">CIN</label>
+                   <div class="col-sm-8">
+                    <input type="text" class="form-control" formControlName="cine" id="cine">
+                   </div>
+                  </div>
+                  
+                  <div *ngIf ="editProfileForm.get('nom_societe').value" class="form-group row">
+                    <label for="client" class="col-sm-4 col-form-label">Nom société</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control" formControlName="nom_societe" id="nom_societe">
+                    </div>
+                   </div> 
+                   <div *ngIf ="editProfileForm.get('rc').value" class="form-group row">
+                    <label for="client"  class="col-sm-4 col-form-label">Rc</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control" formControlName="rc" id="rc">
+                    </div>
+                   </div> 
+                   <div class="form-group row">
+                    <label for="client" class="col-sm-4 col-form-label">Téléphone</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control" formControlName="tel" id="tel">
+                    </div>
+                   </div>
+
+
+                    <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+                   <button type="submit" (click)="update_client(client)" class="btn btn-primary">Save changes</button>
+                  </div>
+                 </form>
+                </div>
+               </ng-template>
+        
+      
+
+
+
+             <!--<a routerLink="listes" routerLinkActive="active" >editer</a>-->
+              <!-- <button (click)="delete_client(client)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>-->
+             <button 
+             class="btn btn-dang"
+             mwlConfirmationPopover
+             [popoverTitle]="popoverTitle"
+             [popoverMessage]="popoverMessage"
+             placement="left"
+             (confirm)="desactiver(client)"
+             (cancel)="cancelClicked=true">
+             Delete
+             </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+</div>
+
+  <div class="cardb" >
+    <div class="card">
+      <div class="card-header">
+        Rechercher un boitier
+      </div>
+
+      <nav class="navbar"style="display: inline;">
+        <input matInput class="form-control" type="text" [(ngModel)]="searchText2" placeholder="Rechercher...">
+      </nav>
+
+
+
+    <div class="cardbody"     style="overflow: auto;">
+      <table class="table table-striped">
+        <thead>
+          <tr class="text-center">
+            <th>ID</th>
+            <th>Compte</th>
+            <th>Tel</th>
+            <th>Operateur</th>
+            <th>Imei</th>
+            <th>Boitier</th>
+            <th>Matricule</th>
+            <th>Marque</th>
+            <th>Model</th>
+            <th>Engine</th>
+            <th>Date</th>
+            <th >Action</th>
+           
+          </tr>
+        </thead>
+        <tbody *ngIf ="actif !== '0'">
+          <tr *ngFor="let brancher of branchers |filter:searchText2  | paginate: {itemsPerPage: 4, currentPage: p}" class="text-center">
+            <td>{{brancher.id}}</td>
+            <td>{{brancher.compte.login}}</td>
+            <td>{{brancher.sim.tel}}</td>
+            <td>{{brancher.sim.type_operateur.nomoperateur}}</td>
+            <td>{{brancher.boitier.imei}}</td> 
+            <td>{{brancher.boitier.type_boitier.observation}}</td> 
+            <td>{{brancher.engine.matricule}}</td> 
+            <td>{{brancher.engine.marque}}</td> 
+            <td>{{brancher.engine.model}}</td> 
+            <td >{{brancher.engine.typeengine.type}}</td> 
+            <td>{{brancher.date_installation}}</td>
+            <td>
+              <button type="button" class="btn btn-edit" (click)="openModal(editProfileModal,client,compte)">Edit</button>
+              <ng-template #editProfileModal let-modal>
+                <div class="modal-header">
+                 <h5 class="modal-title" id="editProfileLabel">Modification d'un client</h5>
+                 <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                 </button>
+                </div>
+                
+                <div class="modal-body">
+                 <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+                  <div class="form-group row">
+                   <label for="client" class="col-sm-4 col-form-label" >Id</label>
+                   <div class="col-sm-8">
+                    <input type="text" class="form-control" formControlName="id" id="id" >
+                   </div>
+                  </div>   <div class="form-group row">
+                   <label for="client" class="col-sm-4 col-form-label">Nom</label>
+                   <div class="col-sm-8">
+                    <input type="text" class="form-control" formControlName="nom" id="nom">
+                   </div>
+                  </div>   <div class="form-group row">
+                   <label for="client" class="col-sm-4 col-form-label">CIN</label>
+                   <div class="col-sm-8">
+                    <input type="text" class="form-control" formControlName="cine" id="cine">
+                   </div>
+                  </div>
+                  
+                  <div *ngIf ="editProfileForm.get('nom_societe').value" class="form-group row">
+                    <label for="client" class="col-sm-4 col-form-label">Nom société</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control" formControlName="nom_societe" id="nom_societe">
+                    </div>
+                   </div> 
+                   <div *ngIf ="editProfileForm.get('rc').value" class="form-group row">
+                    <label for="client"  class="col-sm-4 col-form-label">Rc</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control" formControlName="rc" id="rc">
+                    </div>
+                   </div> 
+                   <div class="form-group row">
+                    <label for="client" class="col-sm-4 col-form-label">Téléphone</label>
+                    <div class="col-sm-8">
+                     <input type="text" class="form-control" formControlName="tel" id="tel">
+                    </div>
+                   </div>
+
+
+                    <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+                   <button type="submit" (click)="update_client(client)" class="btn btn-primary">Save changes</button>
+                  </div>
+                 </form>
+                </div>
+               </ng-template>
+        
+      
+
+
+
+             <!--<a routerLink="listes" routerLinkActive="active" >editer</a>-->
+              <!-- <button (click)="delete_client(client)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>-->
+             <button 
+             class="btn btn-dang"
+             mwlConfirmationPopover
+             [popoverTitle]="popoverTitle"
+             [popoverMessage]="popoverMessage"
+             placement="left"
+             (confirm)="desactiver(client)"
+             (cancel)="cancelClicked=true">
+             Delete
+             </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+</div>
+               <!--<a routerLink="listes" routerLinkActive="active" >editer</a>
+            <button (click)="delete_client(client)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>
+            <button
+            class="btn btn-danger"
+            mwlConfirmationPopover
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
+            placement="left"
+            (confirm)="delete_client(client.id)"
+            (cancel)="cancelClicked=true">
+            Delete
+            </button>
+           </td>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+ </div>
+ <div class="pagination">
+   <pagination-controls (pageChange)="p = $event"></pagination-controls>
+ </div>
+
+</div>-->

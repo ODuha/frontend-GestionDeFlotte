@@ -1,0 +1,268 @@
+<!--
+<button mat-raised-button (click)="isOptional = !isOptional">
+  {{!isOptional ? 'Enable optional steps' : 'Disable optional steps'}}
+</button>
+-->
+
+<mat-horizontal-stepper linear>
+  <mat-step label="Step 1" state="phone" [stepControl]="firstFormGroup">
+    
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel >Choisissez le compte</ng-template>
+      <div class="boitier_puce_div">
+      <mat-form-field  >
+        <mat-label>Nom du compte</mat-label>
+       
+        <input type="text"   [(ngModel)]="brancher.id_compte" 
+        matInput [matAutocomplete]="auto" formControlName="ct"  required> <mat-icon matSuffix>person</mat-icon>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWith">
+          <mat-option *ngFor="let option of filteredOption |async " [value]="option">
+            {{option.login}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="firstFormGroup.controls['ct'].hasError('required')">
+          La saisie d'un compte est obligatoire !
+        </mat-error>
+
+        <mat-error *ngIf="firstFormGroup.controls['ct'].hasError('incorrect')">
+          Veuillez selectionner un compte valide !
+        </mat-error>
+       </mat-form-field>
+      </div>
+      <div class="sender"  >
+        <button  mat-icon-button class="button1"  matStepperNext ><mat-icon>arrow_forward_ios</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Entrez les informations sim</ng-template>
+      <div class="boitier_puce_div">
+        <mat-form-field>
+        <mat-label>Téléphone</mat-label>
+
+    <input [(ngModel)]="brancher.id_sim.tel" maxlength="10" (keypress)="number_only($event)" matInput formControlName="tel" type="tel"  ><mat-icon matSuffix> phone</mat-icon>
+    <mat-error *ngIf="secondFormGroup.controls['tel'].hasError('incorrect')">
+      Phone no is Required(minimum length 10,numbers are only allowed)    </mat-error>
+      </mat-form-field>
+      </div>
+      <div class="boitier_puce_div">
+      <mat-form-field>
+        <mat-label>Operateur</mat-label>
+        <mat-select  [(ngModel)]="brancher.id_sim.type_operateur" matInput formControlName="operateur" >
+          <mat-option *ngFor="let option of type_operateurs " [value]="option" >
+            {{option.nomoperateur}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+      <div class="sender">
+        <button mat-icon-button class="button1"matStepperPrevious><mat-icon>arrow_back_ios</mat-icon></button>
+        <button mat-icon-button class="button2" matStepperNext><mat-icon>arrow_forward_ios</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+    <form [formGroup]="thirdFormGroup">
+      <ng-template matStepLabel>Entrez les informations boitier</ng-template>
+      <div class="boitier_puce_div">
+      <mat-form-field>
+        <mat-label>Imei</mat-label>
+        <input [(ngModel)]="brancher.id_boitier.imei" matInput formControlName="imei" maxlength="15" (keypress)="number_only($event)"
+        required>
+        <mat-error *ngIf="secondFormGroup.controls['tel'].hasError('incorrect')">
+         iMEI no is Required(minimum length 15,numbers are only allowed)    </mat-error>
+      
+      </mat-form-field>
+      </div>
+      <div class="boitier_puce_div">
+        <mat-form-field >
+          <mat-label>Type boitier </mat-label>
+          <!--<mat-select   formControlName="typeboitier"  required>
+            <mat-option  *ngFor="let option of type_boitiers" [value]="option">
+              {{option.observation}}
+            </mat-option>
+          </mat-select>-->
+           <mat-select [(ngModel)]="brancher.id_boitier.type_boitier" matInput formControlName="typeboitier" >
+    <mat-option *ngFor="let option of tboitiers " [value]="option" >
+      {{option.observation}}
+    </mat-option>
+  </mat-select>
+          <mat-error *ngIf="thirdFormGroup.controls['typeboitier'].hasError('incorrect')">
+            This field is required
+          </mat-error>
+
+        </mat-form-field>
+
+      </div>
+      <div class="sender">
+        <button mat-icon-button class="button1" matStepperPrevious><mat-icon>arrow_back_ios</mat-icon></button>
+        <button mat-icon-button class="button2"matStepperNext><mat-icon>arrow_forward_ios</mat-icon></button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="forthFormGroup" [optional]="isOptional">
+    <form [formGroup]="forthFormGroup">
+      <ng-template matStepLabel>Entrez les informations vehicule</ng-template>
+      <div class="boitier_puce_div">
+      <mat-form-field>
+        <mat-label>Matricule</mat-label>
+        <input [(ngModel)]="brancher.id_engine.matricule" matInput formControlName="matricule" 
+               required>
+      </mat-form-field>
+      </div>
+      <div class="boitier_puce_div">
+        <mat-form-field>
+          <mat-label>Marque</mat-label>
+          <input [(ngModel)]="brancher.id_engine.marque" matInput formControlName="marque"
+                 required>
+        </mat-form-field>
+      </div>
+      <div class="boitier_puce_div">
+        <mat-form-field>
+          <mat-label>Model</mat-label>
+          <input  [(ngModel)]="brancher.id_engine.model" matInput formControlName="model" 
+                 required>
+        </mat-form-field>
+      </div>
+      <div class="boitier_puce_div">
+        <mat-form-field>
+          <mat-label>Engine</mat-label>
+          <mat-select [(ngModel)]="brancher.id_engine.type_engine" matInput formControlName="typeengine" required>
+            <mat-option *ngFor="let option of type_engines " [value]="option" >
+              {{option.type}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="boitier_puce_div">
+        <mat-form-field>
+          <mat-label>Date d'installation </mat-label>
+          <input matInput [matDatepicker]="picker"  [(ngModel)]="brancher.date_installation"  formControlName="date" 
+          required>{{date | date: 'shortDate' }}
+  <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="sender">
+        <button mat-icon-button class="button1" matStepperPrevious><mat-icon>arrow_back_ios</mat-icon></button>
+        <!--<button mat-button matStepperNext (click)="add_to_database()"></button>-->
+        <button type="button" class="btn btn-pri" (click)="openModal(editProfileModal, brancher)">Ajouter</button>
+        <ng-template #editProfileModal let-modal>
+          <div class="modal-header">
+           <h5 class="modal-title h5" id="editProfileLabel" > Confirmation d'ajout </h5>
+           <button type="button" class="close" (click)="modal.dismiss()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+           </button>
+          </div>
+          
+          <div class="modal-body">
+           <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()" >
+            <div class="form-group row">
+              <label for="compte" class="col-sm-4 col-form-label">Compte</label>
+              <div class="col-sm-8">
+               <input type="text" class="form-control"  formControlName="ct" id="ct">{{compte.login}}
+              </div>
+             </div>
+            
+        <div class="form-group row">
+             <label  class="col-sm-4 col-form-label">tel</label>
+             <div class="col-sm-8">
+              <input  type="text" class="form-control" formControlName="tel" id="tel">
+             </div>
+            </div>  
+            <div class="form-group row">
+              <label for="type_operateur" class="col-sm-4 col-form-label">Operateur</label>
+              <div class="col-sm-8">
+               <input  type="text" class="form-control" formControlName="operateur" id="operateur">{{type_operateur.nomoperateur}}
+              </div>
+             </div>
+          
+            <div class="form-group row">
+              <label for="imei" class="col-sm-4 col-form-label">imei</label>
+              <div class="col-sm-8">
+               <input type="text" class="form-control" formControlName="imei" id="imei">
+              </div>
+             </div> 
+             <div class="form-group row">
+              <label for="type_boitier" class="col-sm-4 col-form-label">Boitier</label>
+              <div class="col-sm-8">
+               <input   type="text" class="form-control" formControlName="typeboitier" id="typeboitier">{{type_Boitier.observation}}
+              </div>
+             </div>
+
+                <!--<input [(ngModel)]="brancher.boitier.type_boitier" type="text" class="form-control" formControlName="typeboitier" id="typeboitier">{{type_Boitier.observation}}
+                -->
+             
+             <div class="form-group row">
+              <label for="matricule" class="col-sm-4 col-form-label">matricule</label>
+              <div class="col-sm-8">
+               <input  type="text" class="form-control" formControlName="matricule" id="matricule">
+              </div>
+             </div>
+             <div class="form-group row">
+              <label for="marque" class="col-sm-4 col-form-label">marque</label>
+              <div class="col-sm-8">
+               <input  type="text" class="form-control" formControlName="marque" id="marque">
+              </div>
+             </div>   
+             <div class="form-group row">
+              <label for="model" class="col-sm-4 col-form-label">model</label>
+              <div class="col-sm-8">
+               <input  type="text" class="form-control" formControlName="model" id="model">
+              </div>
+             </div>  
+             <div class="form-group row">
+              <label for="type_engine" class="col-sm-4 col-form-label">Engine</label>
+              <div class="col-sm-8">
+               <input type="text" class="form-control"  formControlName="typeengine" id="typeengine">{{engine.type}}
+              </div>
+             </div>
+             <!--<div class="form-group row">
+              <label for="typeengine" class="col-sm-4 col-form-label">type_engine</label>
+              <div class="col-sm-8">
+                <input [(ngModel)]="brancher.engine.type_engine" matInput formControlName="typeengine" type="text" class="form-control" id="typeengine">
+                {{engine.type}}
+                </div>
+             </div>  -->
+             <div class="form-group row">
+              <label for="date" class="col-sm-4 col-form-label">date</label>
+              <div class="col-sm-8">
+               <input  type="text" class="form-control" formControlName="date" id="date">
+              </div>
+             </div>  
+              <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Close</button>
+             <button type="submit" (click)="add_to_database()" class="confirm" mat-button matStepperNext>Confirmer </button>
+            </div>
+           </form>
+          </div>
+         </ng-template>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Fin</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+      <!--<button mat-button (click)="add_boitier()">add</button>-->
+    </div>
+  </mat-step>
+  <!-- Icon overrides. -->
+</mat-horizontal-stepper>
+
+<!--<mat-form-field appearance="fill">
+  <mat-label>Select </mat-label>
+  <select matNativeControl required [formControl]="type_boitier">
+    <option label="--select  --"></option>
+    <mat-option *ngFor="let option of filteredOptions | async " [value]="option">
+      {{option.observation}}
+    </mat-option>
+  </select>
+  <mat-error *ngIf="selectFormControl.hasError('required')">
+    This field is required
+  </mat-error>
+
+</mat-form-field>-->

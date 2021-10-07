@@ -1,0 +1,341 @@
+@media screen and (min-width: 600px) {
+  ::ng-deep.mat-step-icon-state-edit {
+    background-color: green !important;
+    color: #fff;
+  }
+  ::ng-deep.mat-horizontal-stepper-content .sender {
+    float: right;
+    position: relative;
+    display: inline-flex;
+    margin-top: 25%;
+  }
+  .mat-stepper-vertical, .mat-stepper-horizontal{
+    border-radius: 5px;
+    background-color: white;
+    width: 90%;
+    margin-left: 50px;
+    height: 50%;
+  }
+
+  ::ng-deep.mat-horizontal-stepper-content form {
+    margin-top: 5vw;
+  }
+  .modal-title.h5{
+    text-align: center;
+  }
+  .boitier_puce_div
+  {
+    width: 50%;
+    float: left;
+    display: inline-flex;
+  }
+  ::ng-deep.boitier_puce_div .mat-form-field
+  {
+    width: 87%;
+  }
+ 
+
+  ::ng-deep.boitier_puce_div .mat-form-field-wrapper {
+    width: 87%;
+    padding: 1rem;
+    position: relative;
+  }
+  ::ng-deep.boitier_puce_div .mat-form-field {
+    width: 100%;
+}
+::ng-deep.mat-horizontal-stepper-header-container {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  background-color: #d3300d;
+
+}
+mat-horizontal-stepper{
+  
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+ 
+
+}
+
+
+::ng-deep.mat-step-header .mat-step-icon {
+  background-color: #fa8368;
+  color: white;
+}
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-infix {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+::ng-deep.mat-step-header .mat-step-label, .mat-step-header {
+  font-weight: bold;
+  color:white ;
+}
+::ng-deep.mat-step-header .mat-step-label.mat-step-label-active {
+  color: white;
+  font-weight: bold;
+
+}
+
+
+
+  
+}
+@media screen and (max-width: 600px) {
+::ng-deep.boitier_puce_div {
+  width: 100%;
+  float: left;
+  margin-left: -17px;
+}}
+@media screen and (max-width: 600px) {
+  ::ng-deep .mat-step-header .mat-step-label, .mat-step-header .mat-step-optional
+  {
+    display: none;
+  }
+  ::ng-deep.mat-step-icon-state-edit {
+    background-color: green !important;
+    color: #fff;
+  }
+  ::ng-deep.mat-horizontal-stepper-content form {
+    margin-top: 5vw;
+  }
+  ::ng-deep.mat-form-field-wrapper {
+    width: 45vw;
+  }
+  ::ng-deep.mat-horizontal-stepper-content .sender {
+    float: right;
+    position: relative;
+    display: inline-flex;
+    margin-top: 25%;
+  }
+  .boitier_puce_div
+  {
+    width: 100%;
+    float: left;
+    display: inline-flex;
+  }
+  ::ng-deep.boitier_puce_div .mat-form-field
+  {
+    width: 100%;
+  }
+  ::ng-deep.boitier_puce_div .mat-form-field-wrapper {
+    width: 100%;
+    position: relative;
+  }
+  ::ng-deep.modal-body label {
+    margin-right: -41px;
+    margin-left: -4px;
+    margin-top: -3px;
+}
+::ng-deep.modal-body input{
+  position: relative;
+width: 69%;
+padding-right: -7px;
+margin-left: 86px;
+margin-top: -28px;
+}
+::ng-deep.mat-horizontal-stepper-header-container {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  margin-left: -17px;
+}
+::ng-deep.mat-horizontal-stepper-content {
+  outline: 0;
+  text-align: center;
+}
+
+::ng-deep.mat-button .reset {
+  margin-left: 8px;
+}
+
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.cdk-global-overlay-wrapper, .cdk-overlay-container{
+  top:100px;
+}
+::ng-deep .mat-horizontal-stepper{
+  pointer-events: none !important;
+}
+
+.mat-icon {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  height: 24px;
+  width: 24px;
+  margin-right: -27px;
+}
+::ng-deep.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 180px;
+  margin-right: -31px;
+}
+::ng-deep.boitier_puce_div .mat-form-field-wrapper {
+  width: 80%;
+  padding: 1rem;
+  position: relative;
+  margin-left: 20px;
+}
+::ng-deep.mat-form-field-wrapper {
+  margin-left: 30px;
+}
+::ng-deep.mat-select-panel {
+  background: white;
+  margin-top: 37px;
+}
+::ng-deep.mat-datepicker-toggle, .mat-datepicker-content .mat-calendar-next-button, .mat-datepicker-content .mat-calendar-previous-button {
+  color: rgba(0, 0, 0, 0.54);
+  margin-right: -30px;
+  font-size: 20px;
+}
+ .confirm{
+  color: #fff;
+  background-color: green;
+  border-color: green;
+  font-family: 'Times New Roman', Times, serif;
+  border-radius: 12px;
+}
+::ng-deep.confirm:hover{
+  font-family: 'Times New Roman', Times, serif;
+  color: #fff;
+  background-color: rgb(9, 189, 9);
+  border-color: rgb(9, 189, 9);
+  border-radius: 12px;
+}
+::ng-deep.mat-select-value-text {
+
+   font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+::ng-deep .button1 .mat-icon-button:hover  {
+
+background-color: #fa8368;
+
+}
+::ng-deep .button1.mat-icon-button .mat-icon {
+  margin-right: -5px;
+  margin-bottom: 4px;
+  font-size: 20px;
+
+}
+ .btn-pri{
+  color: #fff;
+  background-color: green;
+  border-color: green;
+  cursor: pointer;
+  text-align: center;
+  min-width: 62px;
+  border-radius: 12px;
+  margin-left: 12px;
+}
+.btn-pri:hover{
+  
+  color: #fff;
+  background-color: rgb(9, 189, 9);
+  border-color: rgb(9, 189, 9);;
+ 
+}
+.btn-secondary{
+  color: #fff;
+  background-color: rgb(111, 114, 111);
+  border-color: rgb(111, 114, 111);
+  cursor: pointer;
+  text-align: center;
+  min-width: 62px;
+  border-radius: 12px;
+  margin-left: 12px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.btn-secondary:hover{
+  
+  color: #fff;
+  background-color: rgb(183, 192, 183);
+  border-color: rgb(183, 192, 183);
+  font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+::ng-deep.mat-button, .mat-flat-button, .mat-icon-button, .mat-stroked-button {
+  color: #fff;
+  background-color: #d3300d;
+  cursor: pointer;
+  text-align: center;
+  min-width: 42px;
+  border-radius: 12px;
+  margin-left: 12px;
+}
+::ng-deep.mat-button, .mat-icon-button:hover  {
+
+  background-color: #fa8368;
+  
+  }
+  .modal-body{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+  }
+ 
+    
+
+::ng-deep.mat-step-header .mat-step-icon {
+  background-color: #fa8368;
+  color: white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+.modal-title{
+  font-family: 'Times New Roman', Times, serif; 
+  font-size: 28px;
+margin-left: 98px;
+color: gray;
+}
+::ng-deep.col-form-label {
+  margin-bottom: -8px;
+  margin-right: -46px;
+margin-left: 22px;
+}
+@media screen and (max-width: 600px) {
+  .modal-title{
+font-family: 'Times New Roman', Times, serif;
+font-size: 22px;
+margin-left: 28px;
+color: gray;
+  }
+ 
+  ::ng-deep.mat-stepper-horizontal{
+  
+      display: block;
+      margin-bottom: 14px;}
+
+  ::ng-deep.mat-horizontal-content-container {
+    overflow: hidden;
+  
+    text-align: center;
+    padding: 31px;
+  }}
+  ::ng-deep.mat-horizontal-content-container {
+    overflow: hidden;
+    margin-top: 21px;
+    text-align: center;
+    padding-bottom: 21px;
+}
+::ng-deep.mat-button .reset {
+  margin-left: 8px;
+}

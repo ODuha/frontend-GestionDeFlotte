@@ -1,0 +1,128 @@
+<!--h5 class="card-header">Modification</h5>
+<div class="s">
+<mat-tab-group mat-align-tabs="center" (selectedTabChange)="new_one($event)" >
+    <mat-tab label="Client physique">
+
+
+
+    <form  *ngIf="show_tab == 1" [formGroup]="exform" (ngSubmit)="onSubmit($event)">
+        <div class="form-group">
+          <mat-form-field appearance="legacy">
+            <mat-label>Nom</mat-label>
+            <input [(ngModel)]="Client.nom" matInput formControlName="nom"  type="text" >
+
+            <div *ngIf="nom.errors?.required" class="error_div text-danger">Name is Required</div>
+          </mat-form-field></div>
+          <div class="form-group">
+            <mat-form-field appearance="legacy">
+              <mat-label>Prénom</mat-label>
+            <input  matInput formControlName="prenom" type="text"  >
+            <mat-error *ngIf="prenom.invalid && prenom.touched" class="text-danger">Lastname is Required</mat-error> </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field appearance="legacy">
+              <mat-label>CINE</mat-label>
+
+            <input  [(ngModel)]="Client.cine" matInput formControlName="cine" type="text"  >
+            <mat-error *ngIf="cine.invalid && cine.touched" class="text-danger">CINE is Required</mat-error>
+          </mat-form-field></div>
+
+    </form>
+
+</mat-tab>
+<mat-tab label="Entreprise">
+
+
+        <form *ngIf="show_tab == 2"   [formGroup]="exform" (ngSubmit)="onSubmit($event)">
+
+    <div class="form-group">
+      <mat-form-field appearance="legacy">
+        <mat-label>Nom de société </mat-label>
+        <input  [(ngModel)]="Client.nom_societe" matInput formControlName="nom_societe" type="text" >
+        <mat-error *ngIf=" nom_societe.invalid &&  nom_societe.touched" class="text-danger">Name is Required</mat-error>
+      </mat-form-field></div>
+      <div class="form-group">
+        <mat-form-field appearance="legacy">
+          <mat-label>Rc </mat-label>
+
+        <input [(ngModel)]="Client.rc" matInput formControlName="rc" type="text"  >
+        <mat-error *ngIf="rc.invalid && rc.touched" class="text-danger">RC is Required</mat-error>
+      </mat-form-field></div>
+
+</form></mat-tab></mat-tab-group>
+
+<hr>
+<div>
+
+          <form   [formGroup]="exform" (ngSubmit)="onSubmit($event)">
+            <div class="form-group">
+            <mat-form-field appearance="legacy">
+              <mat-label>Téléphone</mat-label>
+
+            <input [(ngModel)]="Client.tel" maxlength="10" (keypress)="number_only($event)" matInput formControlName="tel" type="tel"  >
+            <mat-error *ngIf="tel.invalid && tel.touched" class="text-danger">Phone no is Required(minimum length 10,numbers are only allowed)</mat-error>
+          </mat-form-field></div>
+            <div class="form-group">
+              <mat-form-field appearance="legacy">
+                <mat-label>Email</mat-label>
+
+              <input [(ngModel)]="Client.email"  matInput formControlName="email" type="text" >
+              <mat-error *ngIf="email.invalid && email.touched" class="text-danger">Email is Required</mat-error>
+            </mat-form-field></div>
+            <div class="form-group">
+              <mat-form-field appearance="legacy">
+                <mat-label>Adresse</mat-label>
+
+              <textarea  formControlName="adresse" [(ngModel)]="Client.adresse" cols="20" rows="4" type="text" matInput placeholder="Adresse"></textarea>
+              <mat-error *ngIf="adresse.invalid && adresse.touched" class="text-danger">Adresse is Required</mat-error>
+            </mat-form-field></div>
+          </form>
+          </div><br>
+        </div>
+
+
+          <div>
+            <nb-card>
+              <nb-card-header><button (click)="add_compte()"> <mat-icon>add</mat-icon></button></nb-card-header>
+            <nb-card-body >
+                  <form class="compte_info" *ngFor="let compte of Client.comptes ;let index = index; "  [formGroup]="exComptesform[index]" (ngSubmit)="onSubmit($event)">
+                  <hr />
+                    <div class="form-group">
+            <div classe="example-container" >
+              <mat-form-field appearance="legacy">
+                <mat-label>Login</mat-label>
+
+                <input [(ngModel)]="compte.login" matInput formControlName="login" type="text" >
+                <div *ngIf="exComptesform[index].get('login').errors?.required" class="error_div text-danger">Login required</div>
+                <div *ngIf="LoginExist(index)" class="error_div text-danger">Login exist</div>
+                 </mat-form-field>
+            <mat-form-field appearance="legacy">
+            <mat-label>Email</mat-label>
+
+            <input [(ngModel)]="compte.email" matInput formControlName="email" type="text" ><mat-icon matSuffix> email</mat-icon>
+
+            <mat-error *ngIf="email.invalid && email.touched" class="text-danger">Email problem</mat-error>
+            </mat-form-field>
+                <mat-form-field appearance="legacy">
+                  <mat-label>Téléphone</mat-label>
+
+                  <input [(ngModel)]="compte.tel" maxlength="10" (keypress)="number_only($event)" matInput formControlName="tel" type="tel"  ><mat-icon matSuffix> phone</mat-icon>
+                  <mat-error *ngIf="tel.invalid && tel.touched" class="text-danger">Phone no is Required(minimum length 10,numbers are only allowed)</mat-error>
+                </mat-form-field>
+
+
+              <mat-form-field appearance="legacy">
+                <mat-label>Password</mat-label>
+                <input [(ngModel)]="compte.password" matInput [type]="hide ? 'password' : 'text'" formControlName="password"  >
+              <mat-icon class="b" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+
+              </mat-form-field>
+            </div>
+            </div>
+             </form></nb-card-body></nb-card>
+            </div>
+            <div class="text-center">
+            <button type="submit" [disabled]="IsValidForm()" (click)="add_client()"  class="btn btn-primary mr-1">Register</button>
+            <button class="btn btn-primary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+          -->

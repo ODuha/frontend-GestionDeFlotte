@@ -1,0 +1,596 @@
+
+  h5{
+    text-align : center;
+    font-family: 'Times New Roman', Times, serif;
+
+    color : black;
+  }
+  label{
+    text-align : center;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  ::ng-deep.card-body{
+    background-color: white;
+    border-radius: 5px;
+    
+    width: 30%;
+    margin-left: 100px;
+  }
+  .nb-card-body{
+    background-color: white;
+   
+  }
+
+  mat-tab-group{
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  hr {
+
+    display: block;
+    clear: both;
+    height: 0;
+    margin: 20px 20vw 15px;
+    padding: 0;
+    border: 0;
+    font-family: arial;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1;
+  }
+  hr:after {
+    content: "\273D \273D \273D  \273D \273D \273D ";
+    height: 0;
+    letter-spacing: 1em;
+    color: #aaa;
+  }
+
+  ::ng-deep .mat-tab-label .mat-tab-label-content {
+    font-family: 'Times New Roman', Times, serif;
+    color:black;
+  }
+  .s{
+    border-radius: 5px;
+    background-color: white;
+    width: 90%;
+    margin-left: 50px;
+    
+  }
+  .s2{
+    border-radius: 5px;
+    background-color: white;
+    width: 90%;
+    margin-left: 50px;
+    
+  }
+  mat-form-field{
+    width: 45%;
+    margin-left: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+
+  }
+  ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: black;
+    width: -100px;
+  }
+
+  .form-group .mat-form-field{
+
+        width: 41%;
+        margin-left: 11px;
+    margin-top: 15px;
+    font-family: 'Times New Roman', Times, serif;
+  color: black;}
+  
+.b:hover {
+  cursor: pointer;
+}
+
+
+
+
+.example-container .mat-form-field + .mat-form-field {
+  margin-left: 24px;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+  background: rgba(99, 95, 144, 0.07);
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.66667;
+  color: black;
+
+}
+
+.container {
+  width: 75%;
+  margin: 3rem auto;
+}
+
+h2 {
+  color: #345F90;
+  font-size: 24px;
+  line-height: 1.25;
+  font-family: 'Times New Roman', Times, serif;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.tab-slider--nav {
+  width: 100%;
+  float: left;
+  margin-bottom: 20px;
+}
+
+.tab-slider--tabs {
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #fff;
+  height: 35px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tab-slider--tabs:after {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: all 250ms ease-in-out;
+  transition: all 250ms ease-in-out;
+  border-radius: 35px;
+}
+.tab-slider--tabs.slide:after {
+  left: 50%;
+}
+
+.tab-slider--trigger {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: bold;
+  color: #d80e05;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 11px 20px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  display: inline-block;
+  -webkit-transition: color 250ms ease-in-out;
+  transition: color 250ms ease-in-out;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.tab-slider--trigger.active {
+  color: #fff;
+  background: #d80e05;
+}
+
+.tab-slider--body {
+  margin-bottom: 20px;
+}
+
+.compte_info div
+{
+  width: 100%;
+  display: inline-flex;
+}
+.compte_info div .mat-form-field
+{
+  font-family: 'Times New Roman', Times, serif;
+  float: left;
+  width: 41%;
+ 
+    margin-top: -10px;
+  margin-left: 44px;
+    margin-right: -3px;
+  margin-bottom: 4px;
+  
+}
+.compte_info div{
+  width: 100%;
+  display: inline-flex;
+  margin-left: -13px;
+  margin-top: 0px;}
+.nb-card-body{
+  padding: 0px;
+  margin: 0px;
+}
+.error_div{
+  margin-left: 22px;
+   
+font-size: medium;
+}
+
+
+
+::ng-deep .mat-tab-header{
+
+  width: 100%;
+  margin-left: 0px;
+}
+::ng-deep.mat-tab-body{
+  margin-top: 1px;
+}
+::ng-deep.mat-tab-body-content {
+ 
+  margin-left: 20px;
+ 
+}
+.mat-form-field{
+  width: 40%;
+}
+
+
+span.error2{
+  margin-top: 40px;
+  margin-left: -698px;
+font-family: 'Times New Roman', Times, serif;
+font-size: medium;
+
+}
+.color{
+  border-radius: 12px;
+}
+
+.color:hover{
+  cursor: pointer;
+  background-color: gray;
+  color: #fff;
+}
+::ng-deep.colora.mat-raised-button{
+  color: #fff;
+  background-color: green;
+  border-color: green;
+  border-radius: 12px;
+ 
+}
+
+::ng-deep.mat-tab-label .mat-tab-label-content {
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+::ng-deep.mat-tab-labels {
+  display: flex;
+  background-color: #d3300d;
+}
+::ng-deep.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary[_ngcontent-qnm-c15] .mat-ink-bar[_ngcontent-qnm-c15] {
+  background-color: #fff;
+  width: -100px;
+}
+
+::ng-deep.btn-danger {
+  color: #fff;
+  background-color: green;
+  border-color: green;
+  
+}
+::ng-deep.layout-container {
+  display: flex;
+  flex: 1;
+  -ms-flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+ 
+  background-image:url("image15.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+
+}
+.mat-raised-button[disabled][disabled] {
+ 
+  color: black;
+}
+
+::ng-deep.btn-danger:hover{
+  color: #fff;
+  background-color: rgb(9, 189, 9);
+  border-color: rgb(9, 189, 9);;
+}
+::ng-deep.btn-danger:not(:disabled):not(.disabled):active{
+  color: #fff;
+  background-color: green;
+  border-color: green;
+}
+::ng-deep.nb-theme-default h3, .nb-theme-default .h3 {
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  
+  
+}
+
+::ng-deep.nb-theme-default p, .nb-theme-default .paragraph {
+  color: #192038;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+
+}
+@media screen and (max-width: 400px)
+{
+::ng-deep.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: block;
+  max-width: 253px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  line-height: 1.5;
+ 
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  font-size: 0.875rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  margin-top: -129px;
+  margin-left: 31px;
+
+}}
+
+/*
+::ng-deep .mat-tab-header{
+
+  width: 90%;
+  margin-left: 50px;
+}
+::ng-deep.mat-tab-body{
+  margin-top: 25px;
+}
+::ng-deep.mat-tab-body-content {
+ 
+  margin-left: 100px;
+ 
+}
+
+.form-group{
+
+  margin-bottom: 10px;
+margin-top: -4px;
+  
+}
+.error_div{
+  margin-left: 20px;
+}
+
+.mat-form-field{
+  width: 40%;
+}
+*/
+
+
+
+/*
+@media screen and (max-width: 400px)
+{
+  .compte_info div{
+     width: 100%;
+    }
+  .compte_info div mat-form-field{
+    float: left;
+    
+  }}
+
+  .error_div
+{
+  margin-top:7%;
+  top: calc(100% - 40%);
+  position: absolute;
+  font-size: 75%;
+  display: block !important;
+}
+
+  .error_div{
+    display: none;
+
+  }*/
+
+::ng-deep.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: block;
+  max-width: 276px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 400;
+  line-height: 1.5;
+ 
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  font-size: 0.875rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  margin-top: -90px;
+  margin-left: 594px;
+
+}
+
+::ng-deep.buttona, .mat-icon-button {
+  color: green;
+}
+::ng-deep.button2.mat-icon-button .mat-button-wrapper  {
+  
+ 
+color:rgb(184, 0, 0) ;
+font-size: 20px; 
+}
+::ng-deep.button2.mat-icon-button   {
+  
+  margin-top: 3px;
+  margin-left: 20px;
+
+}
+.form-group2 mat-form-field{
+  width: 40%;
+  font-family: 'Times New Roman', Times, serif;
+  color: black;
+  font-size: 16px;
+  margin-left: 30px;
+  margin-top: 17px;}
+
+
+  .compte-hr {
+ 
+      display: block;
+      clear: both;
+      height: 0;
+      margin: 7px 20vw 34px;
+      margin-left: 20vw;
+  padding: 0;
+  border: 0;
+  font-family: arial;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1;
+  margin-left: 223px;
+    
+  }
+
+
+/*
+......
+
+
+
+
+
+.text-danger {
+  color: #dc3545 !important;
+  font-size: 9px;
+}*/
+@media screen and (max-width: 400px)
+{
+  .s {
+    border-radius: 5px;
+    background-color: white;
+    width: 90%;
+    margin-left: 12px;
+    margin-top: 45px;
+  }
+  .s2 {
+    border-radius: 5px;
+    background-color: white;
+    width: 90%;
+    margin-left: 12px;
+margin-top: -9px;
+    
+  }
+  hr {
+
+    display: block;
+    clear: both;
+    height: 0;
+    margin: 12px 20vw 6px;
+    padding: 0;
+    border: 0;
+    font-family: arial;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1;
+  }
+
+   .form-group2 mat-form-field{
+    width: 57%;
+    margin-left: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 12px;
+    
+    
+  }
+
+  .form-group mat-form-field{
+    width: 61%;
+   
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+ font-size: 12px;
+      margin-left: 2px;
+      margin-top: 3px;
+
+  }
+  .compte-hr {
+    display: block;
+    clear: both;
+    height: 0;
+    margin: -5px 20vw 21px;
+    padding: 0;
+    border: 0;
+    font-family: arial;
+    text-align: center;
+    font-size: 7px;
+    font-weight: bold;
+    margin-right: -44px;
+  }
+  .error_div {
+    margin-left: 3px;
+    font-size: 12px;
+    
+  }
+  .s.s2.text-danger {
+    color: #dc3545 !important;
+    font-size: 9px;
+    
+  }
+.text-center{
+  margin-bottom: 15px;
+  text-align: center;
+}
+.compte_info div .mat-form-field{
+  font-family: 'Times New Roman', Times, serif;
+  float: left;
+  
+ 
+  width: 64%;
+
+margin-bottom: 4px;
+margin-top: -10px;
+margin-right: 22px;
+margin-left: 14px;
+}
+.button2.mat-icon-button {
+  margin-top: -6px;
+  margin-left: -13px;}
+}
+

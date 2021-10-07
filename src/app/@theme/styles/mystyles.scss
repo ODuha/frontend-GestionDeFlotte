@@ -1,0 +1,11 @@
+@import './themes';
+
+@mixin nb-mystyle() {
+  .costumerSize td  * {
+    font-size: 25px !important;
+    text-align: center;
+  }
+  .wrapper {
+    padding: 20px;
+  }
+}

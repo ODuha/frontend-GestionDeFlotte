@@ -1,0 +1,155 @@
+
+mat-form-field{
+    width: 35%;
+    margin-left: 50px;
+    margin-top: 15px;
+}
+.cardb{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 23px;
+
+}
+.carda {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 23px;
+}
+.card-header{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #d3300d;
+    color: white;
+}
+.btn-dang{
+    color: #fff;
+    background-color: rgb(161, 8, 8);
+    border-color: rgb(161, 8, 8);
+    cursor: pointer;
+    text-align: center;
+    min-width: 62px;
+    border-radius: 12px;
+    margin-left: 12px;
+
+}
+.btn-edit{
+color: #fff;
+  background-color: green;
+  border-color: green;
+  cursor: pointer;
+  text-align: center;
+
+  border-radius: 12px;
+  margin-left: 12px;
+}
+.btn-edit:hover{
+color: #fff;
+background-color: rgb(9, 189, 9);
+border-color: rgb(9, 189, 9);
+
+}
+.btn-dang:hover{
+    color: #fff;
+    background-color: rgb(236, 53, 40);
+    border-color: rgb(236, 53, 40);
+    }
+    ::ng-deep .popover {
+        border-radius: 0.3rem;
+font-family:'Times New Roman', Times, serif;
+        margin-left: -951px;
+        margin-top: 83px;
+    }
+::ng-deep.popover .arrow {
+        position: absolute;
+        display: none;}
+::ng-deep.btn-danger:hover{
+            color: #fff;
+            background-color: rgb(9, 189, 9);
+            border-color: rgb(9, 189, 9);;
+          }
+::ng-deep.btn-danger:not(:disabled):not(.disabled):active{
+            color: #fff;
+            background-color: green;
+            border-color: green;
+          }
+
+::ng-deep.layout-container {
+            display: flex;
+            flex: 1;
+            -ms-flex: 1 1 auto;
+            flex-direction: column;
+            min-width: 0;
+           
+            background-image:url("image15.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+          
+          }
+
+          
+          ::ng-deep.btn-danger {
+            color: #fff;
+            background-color: green;
+            border-color: green;
+            
+          }
+
+        ng-deep.nb-theme-default p {
+            color: #192038;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 0.9375rem;
+            font-weight: 400;
+            line-height: 1.25rem;
+        }
+        ::ng-deep.nb-theme-default h3 {
+                font-size: 1.875rem;
+                font-family: 'Times New Roman', Times, serif;
+                font-weight: 700;
+                line-height: 2.5rem;
+            }
+            @media screen and (max-width: 400px)
+            {
+             .card{
+                width: 1050px;
+             }
+             ::ng-deep.layout-container {
+                display: flex;
+                flex: 1;
+                -ms-flex: 1 1 auto;
+                flex-direction: column;
+                min-width: 0;
+               
+                background-image:url("image15.jpg");
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                background-attachment: fixed;
+              
+              }
+              }
+
+              .nb-theme-default nb-layout.window-mode {}
+ th{
+     font-family: 'Times New Roman', Times, serif;
+     font-size: 18px;
+ }
+ td{
+     font-family: 'Times New Roman', Times, serif;
+     font-size: 18px;
+ }

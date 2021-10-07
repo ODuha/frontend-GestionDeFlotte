@@ -1,0 +1,230 @@
+<nb-card size="large"   class="card1 col-xxxl-12 col-xxl-12 col-lg-6 col-md-6">
+  <nb-tabset fullWidth *ngIf="devicesData">
+
+    <nb-tab tabTitle="En nombre">
+
+      <div class="slider-container">
+        <ngx-devices-dragger [(value)]="infos"
+                                 [min]="devicesData.min" [max]="devicesData.max" [disableArcColor]="theme.arcEmpty"
+                                 [fillColors]="theme.arcFill" [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
+
+          <div class="slider-value-container"  [ngClass]="{ 'off': devicesOff }">
+            <div class="value h1">
+              {{ devicesOff ? '--' : (infos | ngxRound)+"/"+devicesData.max}}
+            </div>
+            <div class="desc">
+              Boitiers fonctionnel
+            </div>
+          </div>
+        </ngx-devices-dragger>
+      </div>
+
+      <!--
+      <nb-radio-group [(ngModel)]="temperatureMode" name="temperature-mode">
+        <nb-radio value="cool">
+          <i class="nb-snowy-circled"></i>
+        </nb-radio>
+        <nb-radio value="warm">
+          <i class="nb-sunny-circled"></i>
+        </nb-radio>
+        <nb-radio value="heat">
+          <i class="nb-flame-circled"></i>
+        </nb-radio>
+        <nb-radio value="fan">
+          <i class="nb-loop-circled"></i>
+        </nb-radio>
+      </nb-radio-group>
+      -->
+    </nb-tab>
+
+    <nb-tab tabTitle="En %">
+
+      <div class="slider-container">
+        <ngx-devices-dragger [(value)]="infos_p"
+                                 [min]="devicesData_p.min" [max]="devicesData_p.max" [disableArcColor]="theme.arcEmpty"
+                                 [fillColors]="theme.arcFill" [thumbBg]="theme.thumbBg" [thumbBorderColor]="theme.thumbBorder">
+
+          <div class="slider-value-container"  [ngClass]="{ 'off': devicesOff_p }">
+            <div class="value humidity h1">
+              {{ devicesOff_p ? '--' : (infos_p | ngxRound) }}
+            </div>
+            <div class="desc">
+              Boitiers fonctionnel
+            </div>
+          </div>
+        </ngx-devices-dragger>
+      </div>
+<!--
+      <nb-radio-group [(ngModel)]="humidityMode" name="humidity-mode">
+        <nb-radio value="cool">
+          <i class="nb-snowy-circled"></i>
+        </nb-radio>
+        <nb-radio value="warm">
+          <i class="nb-sunny-circled"></i>
+        </nb-radio>
+        <nb-radio value="heat">
+          <i class="nb-flame-circled"></i>
+        </nb-radio>
+        <nb-radio value="fan">
+          <i class="nb-loop-circled"></i>
+        </nb-radio>
+      </nb-radio-group>
+      -->
+    </nb-tab>
+  </nb-tabset>
+</nb-card>
+
+<nb-card  style="    height: auto;"  size="large" class="card2 col-xxxl-12 col-xxl-12 col-lg-6 col-md-6 ">
+  <div>
+    <h1>Etat de l'API : </h1><h3 [ngStyle]="{'background-color' : maloc_api_etat == true  ? 'green' : 'red'}">{{maloc_api_etat == true ? "En marche "+maloc_api_count+ " Threads" : "En arrêt"}}</h3>
+    <button  class=" btn btn-info btn-xs"  [disabled]="maloc_api_etat|| maloc_api_etat == null" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;"  (click)="startMalocAPI(dialog)">Start</button>
+    <button   class=" btn btn-info btn-xs"  [disabled]="!maloc_api_etat || maloc_api_etat == null "  style="    width: 45%;
+    padding: 1%;
+    margin: 2%;" (click)="stopMalocAPI(dialog)" >Stop</button>
+  </div>
+  <div>
+    <h1>Etat de JOB : </h1><h3 [ngStyle]="{'background-color' : maloc_job_etat == true  ? 'green' : 'red'}" >{{maloc_job_etat == true ? "En marche "+maloc_job_count+ " Threads" : "En arrêt"}}</h3>
+    <button  class=" btn btn-info btn-xs"  [disabled]="maloc_job_etat|| maloc_job_etat == null"  style="    width: 45%;
+    padding: 1%;
+    margin: 2%;" (click)="startMalocJOB(dialog)" >Start</button>
+    <button  class=" btn btn-info btn-xs"  [disabled]="!maloc_job_etat || maloc_job_etat == null " style="    width: 45%;
+    padding: 1%;
+    margin: 2%;" (click)="stopMalocJOB(dialog)" >Stop</button>
+  </div>
+  <div>
+    <h1>Etat du Moteur : </h1><h3 [ngStyle]="{'background-color' : maloc_engine_etat == true  ? 'green' : 'red'}">{{maloc_engine_etat == true ? "En marche "+maloc_engine_count+ " Threads" : "En arrêt"}}</h3>
+    <button class=" btn btn-info btn-xs"  style="    width: 45%;
+    padding: 1%;
+    margin: 2%;"  [disabled]="maloc_engine_etat|| maloc_engine_etat == null"
+            (click)="startMalocENGINE(dialog)"
+    >Start</button>
+    <button class=" btn btn-info btn-xs" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;"  [disabled]="!maloc_engine_etat || maloc_engine_etat == null" (click)="stopMalocENGINE(dialog)">Stop</button>
+  </div>
+</nb-card>
+
+<nb-card  style="    height: auto;"  size="large" class="card2 col-xxxl-12 col-xxl-12 col-lg-6 col-md-6 ">
+  <div>
+    <h6 style="line-height: 3.5rem;" >ESTABLISHED : {{ESTABLISHED}}
+
+      <button (click)="stopTCPIP(dialog,'arrêter les connexions établie','ESTABLISHED')" class=" btn btn-info btn-xs" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;
+    float: right;
+    "
+              [disabled]="!show_connexion_btn">TUER</button>
+    </h6>
+
+  </div>
+  <div>
+    <h6 style="line-height: 3.5rem;">FIN_WAIT1 : {{FIN_WAIT1}}
+      <button (click)="stopTCPIP(dialog,'arrêter les connexions en attente d\'envoie de fermeture','FIN-WAIT-1')" class=" btn btn-info btn-xs" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;
+    float: right;
+    "
+              [disabled]="!show_connexion_btn">TUER</button>
+
+    </h6>
+
+
+  </div>
+  <div>
+    <h6 style="line-height: 3.5rem;">TIME_WAIT : {{TIME_WAIT}}
+      <button (click)="stopTCPIP(dialog,'arrêter les connexions en attente de reponse !','TIME-WAIT')" class=" btn btn-info btn-xs" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;
+    float: right;
+    "
+              [disabled]="!show_connexion_btn"
+      >TUER</button>
+
+    </h6>
+
+  </div>
+  <div>
+    <h6 style="line-height: 3.5rem;">FIN_WAIT2 : {{FIN_WAIT2}}
+      <button (click)="stopTCPIP(dialog,'arrêter les connexions en attente de fermeture','FIN-WAIT-2')" class=" btn btn-info btn-xs" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;
+    float: right;
+    "
+              [disabled]="!show_connexion_btn">TUER</button>
+
+    </h6>
+
+  </div><div>
+  <h6 style="line-height: 3.5rem;" >CLOSE_WAIT : {{CLOSE_WAIT}}
+    <button (click)="stopTCPIP(dialog,'arrêter les connexions encours de fermeture','CLOSE-WAIT')" class=" btn btn-info btn-xs" style="    width: 45%;
+    padding: 1%;
+    margin: 2%;
+    float: right;
+    "
+            [disabled]="!show_connexion_btn">TUER</button>
+
+  </h6>
+
+</div>
+
+
+  <div>
+  <h6 style="line-height: 3.5rem;" >SYN_RECV : {{SYN_RECV}}
+
+
+  </h6>
+
+</div><div>
+  <h6 style="line-height: 3.5rem;">LAST_ACK : {{LAST_ACK}}
+
+
+
+  </h6>
+
+</div>
+  <div>
+  <h6 style="line-height: 3.5rem;">established : {{established}}
+
+
+  </h6>
+
+
+</div><div>
+  <h6 style="line-height: 3.5rem;">LISTEN : {{LISTEN}}
+
+
+  </h6>
+
+
+</div><div>
+  <h6 style="line-height: 3.5rem;">Foreign : {{Foreign}}
+
+  </h6>
+
+
+</div>
+</nb-card>
+
+
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <div *ngIf="confirmed" id="nb-dialog-spinner" class="spinner" style="position: relative;display: block;width: 20vw;height:20vw;">
+      <div class="blob blob-0"></div>
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+      <div class="blob blob-4"></div>
+      <div class="blob blob-5"></div>
+    </div>
+    <nb-card-header >Attention ! </nb-card-header>
+    <nb-card-body *ngIf="!confirmed">{{ data }}</nb-card-body>
+    <nb-card-footer *ngIf="!confirmed">
+
+      <button nbButton  (click)="d=false;ref.close();false">NON</button>
+      <button nbButton style="float: right;" (click)="d=true;ref.close()">Oui</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
