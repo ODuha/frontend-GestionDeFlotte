@@ -23,11 +23,11 @@
             <th>RC</th>
             <th>Adresse</th>
             <th>Téléphone</th>
-          
+
             <th>Action</th>
           </tr>
         </thead>
-        <tbody *ngIf ="actif !== '0'">
+        <tbody>
           <tr  *ngFor="let client of clients |filter:searchText  | paginate: {itemsPerPage: 4, currentPage: p}" class="text-center">
             <td>{{client.id}}</td>
             <td>{{client.nom}}</td>
@@ -36,7 +36,7 @@
             <td>{{client.rc}}</td>
             <td>{{client.adresse}}</td>
             <td>{{client.tel}}</td>
-            
+
 
             <td>
               <button type="button" class="btn btn-edit" (click)="openModal(editProfileModal,client,compte)">Edit</button>
@@ -47,7 +47,7 @@
                   <span aria-hidden="true">&times;</span>
                  </button>
                 </div>
-                
+
                 <div class="modal-body">
                  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
                   <div class="form-group row">
@@ -66,19 +66,19 @@
                     <input type="text" class="form-control" formControlName="cine" id="cine">
                    </div>
                   </div>
-                  
+
                   <div *ngIf ="editProfileForm.get('nom_societe').value" class="form-group row">
                     <label for="client" class="col-sm-4 col-form-label">Nom société</label>
                     <div class="col-sm-8">
                      <input type="text" class="form-control" formControlName="nom_societe" id="nom_societe">
                     </div>
-                   </div> 
+                   </div>
                    <div *ngIf ="editProfileForm.get('rc').value" class="form-group row">
                     <label for="client"  class="col-sm-4 col-form-label">Rc</label>
                     <div class="col-sm-8">
                      <input type="text" class="form-control" formControlName="rc" id="rc">
                     </div>
-                   </div> 
+                   </div>
                    <div class="form-group row">
                     <label for="client" class="col-sm-4 col-form-label">Téléphone</label>
                     <div class="col-sm-8">
@@ -94,14 +94,14 @@
                  </form>
                 </div>
                </ng-template>
-        
-      
+
+
 
 
 
              <!--<a routerLink="listes" routerLinkActive="active" >editer</a>-->
               <!-- <button (click)="delete_client(client)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>-->
-             <button 
+             <button
              class="btn btn-dang"
              mwlConfirmationPopover
              [popoverTitle]="popoverTitle"
@@ -151,7 +151,7 @@
             <th>Engine</th>
             <th>Date</th>
             <th >Action</th>
-           
+
           </tr>
         </thead>
         <tbody *ngIf ="actif !== '0'">
@@ -160,12 +160,12 @@
             <td>{{brancher.compte.login}}</td>
             <td>{{brancher.sim.tel}}</td>
             <td>{{brancher.sim.type_operateur.nomoperateur}}</td>
-            <td>{{brancher.boitier.imei}}</td> 
-            <td>{{brancher.boitier.type_boitier.observation}}</td> 
-            <td>{{brancher.engine.matricule}}</td> 
-            <td>{{brancher.engine.marque}}</td> 
-            <td>{{brancher.engine.model}}</td> 
-            <td >{{brancher.engine.typeengine.type}}</td> 
+            <td>{{brancher.boitier.imei}}</td>
+            <td>{{brancher.boitier.type_boitier.observation}}</td>
+            <td>{{brancher.engine.matricule}}</td>
+            <td>{{brancher.engine.marque}}</td>
+            <td>{{brancher.engine.model}}</td>
+            <td >{{brancher.engine.typeengine.type}}</td>
             <td>{{brancher.date_installation}}</td>
             <td>
               <button type="button" class="btn btn-edit" (click)="openModal(editProfileModal,client,compte)">Edit</button>
@@ -176,7 +176,7 @@
                   <span aria-hidden="true">&times;</span>
                  </button>
                 </div>
-                
+
                 <div class="modal-body">
                  <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
                   <div class="form-group row">
@@ -195,19 +195,19 @@
                     <input type="text" class="form-control" formControlName="cine" id="cine">
                    </div>
                   </div>
-                  
+
                   <div *ngIf ="editProfileForm.get('nom_societe').value" class="form-group row">
                     <label for="client" class="col-sm-4 col-form-label">Nom société</label>
                     <div class="col-sm-8">
                      <input type="text" class="form-control" formControlName="nom_societe" id="nom_societe">
                     </div>
-                   </div> 
+                   </div>
                    <div *ngIf ="editProfileForm.get('rc').value" class="form-group row">
                     <label for="client"  class="col-sm-4 col-form-label">Rc</label>
                     <div class="col-sm-8">
                      <input type="text" class="form-control" formControlName="rc" id="rc">
                     </div>
-                   </div> 
+                   </div>
                    <div class="form-group row">
                     <label for="client" class="col-sm-4 col-form-label">Téléphone</label>
                     <div class="col-sm-8">
@@ -223,14 +223,14 @@
                  </form>
                 </div>
                </ng-template>
-        
-      
+
+
 
 
 
              <!--<a routerLink="listes" routerLinkActive="active" >editer</a>-->
               <!-- <button (click)="delete_client(client)" class="btn btn-danger" style="margin-left: 10px;">Delete</button>-->
-             <button 
+             <button
              class="btn btn-dang"
              mwlConfirmationPopover
              [popoverTitle]="popoverTitle"
